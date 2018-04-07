@@ -1,0 +1,10 @@
+<my-component id="componet" class="baz boo"></my-component>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    Vue.component('my-component', {
+    template: '<p class="foo bar">Hi</p>'
+    })
+    var vm=new Vue({
+        el:"#componet"
+    })
+</script>
