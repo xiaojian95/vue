@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if,v-show,v-for 指令</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!--v-show 不会吧div里的标签内容
+        删除 只会隐藏 or v-if 会吧div标签里的内容直接删除 -->
+        <div v-if="show">hello world</div>
+        <button @click="hanleClick">toggle</button>
+        <ul>
+            <!--使用v-for的时候 尽量加上key 因为它会加快渲染的效率，但是key
+            必须是唯一的 所以尽量使用list的下标index来做key，
+            当数据量过多时index会出现一些问题-->
+            <li v-for="(item,index) in list" :key="index">{{item}}</li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el:"#root",
+            data:{
+                show:true,
+                list:[1,2,3]
+            },
+            methods:{
+                hanleClick:function(){
+                    this.show=!this.show
+                }
+            }
+        })
+    </script>
+</body>
+</html>
